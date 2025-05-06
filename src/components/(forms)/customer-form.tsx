@@ -2,7 +2,6 @@
 
 import { memo, useState } from 'react';
 import { Field } from '@chakra-ui/react/field';
-import { HStack } from '@chakra-ui/react/stack';
 import { Fieldset } from '@chakra-ui/react/fieldset';
 import { Textarea } from '@chakra-ui/react/textarea';
 
@@ -41,14 +40,8 @@ const CustomerForm = memo(({ onValueChange, defaultValue }: CustomerFormProps) =
       <Fieldset.Legend>Данные заказа</Fieldset.Legend>
 
       <Fieldset.Content>
-        <Field.Root invalid={!formValue?.customer}>
-          <HStack
-            w='100%'
-            justify='space-between'
-          >
-            <Field.Label fontSize={14}>Постоянный клиент</Field.Label>
-            <Field.ErrorText>Это поле обязательное</Field.ErrorText>
-          </HStack>
+        <Field.Root>
+          <Field.Label fontSize={14}>Постоянный клиент</Field.Label>
           <UserSelect
             value={formValue?.customer}
             onValueChange={(value) => handleValueChange('customer', value)}

@@ -19,13 +19,13 @@ const CELLS_CONFIG_MAP = {
     key: 'customer',
     label: 'КЛИЕНТ',
     width: 160,
-    render: (value) => value.customer.name,
+    render: (value) => value.customer?.name ?? '-',
   },
   phone: {
     key: 'phone',
     label: 'НОМЕР ТЕЛЕФОНА',
     width: 200,
-    render: (value) => formatPhone(value.contactPhone ?? value.customer.phone),
+    render: (value) => formatPhone(value.contactPhone),
   },
   status: {
     key: 'status',

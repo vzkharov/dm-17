@@ -34,7 +34,7 @@ const CreateOrderPage: Page = () => {
   );
 
   const handleSubmit = () => {
-    if (!customer.customer || !customer.phone || !shipment.address || !shipment.price || !shipment.deliveryDate) {
+    if (!customer.phone || !shipment.address || !shipment.deliveryDate) {
       toaster.error({
         title: 'Ошибка',
         description: 'Заполните все поля',
@@ -46,11 +46,11 @@ const CreateOrderPage: Page = () => {
     dispatch(
       addOrder({
         products,
+        comment: customer.comment,
         customer: customer.customer,
         contactPhone: customer.phone,
-        comment: customer.comment,
         shipment: {
-          price: shipment.price,
+          price: shipment.price ?? 0,
           address: shipment.address,
           deliveryDate: shipment.deliveryDate,
         },

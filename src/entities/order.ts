@@ -9,8 +9,8 @@ type Order = {
 
   status: OrderStatus;
 
-  customer: User;
-  contactPhone?: string;
+  customer?: User;
+  contactPhone: string;
 
   products: ProductOrder[];
   shipment: Shipment;
