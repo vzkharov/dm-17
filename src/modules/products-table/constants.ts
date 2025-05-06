@@ -1,3 +1,6 @@
+import { formatInteger } from '~/utils/number';
+import { formatProductArticle } from '~/utils/product';
+
 import type { CellConfig } from './types';
 
 const CELLS_CONFIG_MAP = {
@@ -22,7 +25,7 @@ const CELLS_CONFIG_MAP = {
     type: 'text',
     defaultValue: '',
     // @ts-expect-error different input types
-    format: (value: string) => value.replace(/[^A-Z0-9\-]/gi, '').toUpperCase(),
+    format: formatProductArticle,
 
     width: 100,
     editable: true,
@@ -36,7 +39,7 @@ const CELLS_CONFIG_MAP = {
     type: 'number',
     defaultValue: 0,
     // @ts-expect-error different input types
-    format: (value: number | string) => (typeof value === 'number' ? Math.floor(value) : Math.floor(Number(value))),
+    format: formatInteger,
 
     width: 100,
     editable: true,
@@ -50,7 +53,7 @@ const CELLS_CONFIG_MAP = {
     type: 'number',
     defaultValue: 0,
     // @ts-expect-error different input types
-    format: (value: number | string) => (typeof value === 'number' ? value : Number(value)),
+    format: formatInteger,
 
     width: 100,
     editable: true,
